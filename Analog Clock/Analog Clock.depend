@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1503300606 source:c:\users\admin\c++\analog clock\clockclass.cpp
+	"clockclass.h"
+	<ctime>
+	<cmath>
+	<iostream>
+
+1503297694 c:\users\admin\c++\analog clock\clockclass.h
+	<graphics.h>
+
+1503300425 source:c:\users\admin\c++\analog clock\main.cpp
+	<iostream>
+	"clockclass.h"
+
