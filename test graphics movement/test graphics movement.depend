@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1503282984 source:c:\users\admin\c++\test graphics movement\a.cpp
+	"a.h"
+	<iostream>
+
+1503282950 c:\users\admin\c++\test graphics movement\a.h
+	<graphics.h>
+
+1503292210 source:c:\users\admin\c++\test graphics movement\main.cpp
+	<iostream>
+	"a.h"
+
