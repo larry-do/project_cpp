@@ -1,2 +1,1 @@
-# project_cpp
-Các tiểu dự án thực hành.
+#CÁC PROJECT CƠ BẢN THỰC HÀNH
