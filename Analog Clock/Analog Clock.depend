@@ -12,3 +12,16 @@
 	<iostream>
 	"clockclass.h"
 
+1503347536 source:d:\github\project_cpp\analog clock\clockclass.cpp
+	"clockclass.h"
+	<ctime>
+	<cmath>
+	<iostream>
+
+1503297694 d:\github\project_cpp\analog clock\clockclass.h
+	<graphics.h>
+
+1503300767 source:d:\github\project_cpp\analog clock\main.cpp
+	<iostream>
+	"clockclass.h"
+
