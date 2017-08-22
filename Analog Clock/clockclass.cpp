@@ -27,8 +27,9 @@ void analogClock::getMinuteCoordinate(){
     minute.y=center.y-int(cos(tizan->tm_min*pi/30)*(double)mRadius);
 }
 void analogClock::getHourCoordinate(){
-    hour.x=center.x+int(sin((tizan->tm_hour%12)*pi/12)*(double)hRadius);
-    hour.y=center.y-int(cos((tizan->tm_hour%12)*pi/12)*(double)hRadius);
+    hour.x=center.x+int(sin((tizan->tm_hour%12)*pi/6)*(double)hRadius);
+    hour.y=center.y-int(cos((tizan->tm_hour%12)*pi/6)*(double)hRadius);
+    std::cout<<tizan->tm_hour<<std::endl;
 }
 void analogClock::showClock(){
     circle(center.x,center.y,clockRadius);
