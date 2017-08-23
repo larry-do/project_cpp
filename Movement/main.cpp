@@ -6,15 +6,11 @@ int main(){
     b.show();
     while(true)
     {
-        if(kbhit()){
-            char c=getch();
-            if(c=='z') b.zoomIn();
-            else if(c=='x') b.zoomOut();
-        }
         b.moveObz();
+        b.controlBall();
         b.show();
         b.handleEvent();
-        delay(10);
+        delay(1);
         cleardevice();
     }
     getch();

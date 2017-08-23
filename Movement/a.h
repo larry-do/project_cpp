@@ -6,6 +6,7 @@ class obzect {
 private:
     int x,y;
     int radius;
+    int speed;
     colors kolor;
     status steitus;
 public:
@@ -13,7 +14,6 @@ public:
     ~obzect();
     void show();
     void handleEvent();
-    void zoomOut();
-    void zoomIn();
+    void controlBall();
     void moveObz();
 };

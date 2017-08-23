@@ -6,6 +6,7 @@ obzect::obzect(int a,int b,int zadius,colors kalor, status steituz){
     radius=zadius;
     kolor=kalor;
     steitus = steituz;
+    speed=1;
 }
 obzect::~obzect(){
     std::cout<<"The object has been deleted";
@@ -37,19 +38,28 @@ void obzect::handleEvent(){
         else if(steitus==UPLEFT) steitus=DOWNLEFT;
     }
 }
-void obzect::zoomOut(){
-    if(2*radius<HEIGHT) radius+=2;
-}
-void obzect::zoomIn(){
-    if(radius>2) radius-=2;
+void obzect::controlBall(){
+    if(kbhit()){
+        char c=getch();
+        if(c=='s') speed+=1;
+        if(c=='d') {
+            if(speed>=1) speed-=1;
+        }
+        if(c=='z'){
+            if(2*radius<HEIGHT) radius+=2;
+        }
+        if(c=='x'){
+            if(radius>2) radius-=2;
+        }
+    }
 }
 void obzect::moveObz(){
-    if(steitus==LEFT) x-=3;
-    else if(steitus==RIGHT) x+=3;
-    else if(steitus==UP) y-=3;
-    else if(steitus==DOWN) y+=3;
-    else if(steitus==DOWNLEFT){x-=3;y+=3;}
-    else if(steitus==DOWNRIGHT){x+=3;y+=3;}
-    else if(steitus==UPLEFT){x-=3;y-=3;}
-    else if(steitus==UPRIGHT){x+=3;y-=3;}
+    if(steitus==LEFT) x-=speed;
+    else if(steitus==RIGHT) x+=speed;
+    else if(steitus==UP) y-=speed;
+    else if(steitus==DOWN) y+=speed;
+    else if(steitus==DOWNLEFT){x-=speed;y+=speed;}
+    else if(steitus==DOWNRIGHT){x+=speed;y+=speed;}
+    else if(steitus==UPLEFT){x-=speed;y-=speed;}
+    else if(steitus==UPRIGHT){x+=speed;y-=speed;}
 }
