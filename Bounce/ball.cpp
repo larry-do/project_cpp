@@ -58,7 +58,7 @@ void ball::ballBounce(){
         }
         if(y+radius>=H){ //float -> int
             status=UP;
-            speed=speed/100*90;
+            speed=speed/100*80;
         }
     }
     if(status==UP){
