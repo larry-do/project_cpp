@@ -5,12 +5,13 @@
 enum statusEnum{UP,DOWN};
 class ball {
 private:
-    int x,y,radius,speed,acceleration;
+    int x,y,radius;
+    float speed,acceleration;
     statusEnum status;
 public:
-    ball(int a = W/2,int b=H/2,int r=10, statusEnum s=DOWN);
+    ball(int a = W/2,int b=H/2);
     ~ball();
-    void initBall(int,int,int,statusEnum);
+    void initBall(int,int,int,int,int);
     void controlBall();
     void ballBounce();
     void showBall();
