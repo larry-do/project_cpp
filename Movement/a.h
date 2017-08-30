@@ -1,16 +1,13 @@
 #include<graphics.h>
 #define WIDTH 800
 #define HEIGHT 600
-enum status {UP,DOWN,LEFT,RIGHT,STATIC,UPRIGHT,UPLEFT,DOWNRIGHT,DOWNLEFT};
 class obzect {
 private:
-    int x,y;
-    int radius;
-    int speed;
-    colors kolor;
-    status steitus;
+    double x,y;
+    double radius;
+    double speedX,speedY;
 public:
-    obzect(int a=0,int b=0,int zadius=0,colors kalor=WHITE,status steituz=DOWNLEFT);
+    obzect(double a=0,double b=0,double r=20);
     ~obzect();
     void show();
     void handleEvent();

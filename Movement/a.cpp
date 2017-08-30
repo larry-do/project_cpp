@@ -1,65 +1,38 @@
 #include"a.h"
 #include<iostream>
-obzect::obzect(int a,int b,int zadius,colors kalor, status steituz){
+obzect::obzect(double a,double b,double r){
     x=a;
     y=b;
-    radius=zadius;
-    kolor=kalor;
-    steitus = steituz;
-    speed=1;
+    radius=r;
+    speedX=speedY=3;
 }
 obzect::~obzect(){
     std::cout<<"The object has been deleted";
 }
 void obzect::show(){
-    setfillstyle(SOLID_FILL,kolor);
-    setcolor(kolor);
     fillellipse(x,y,radius,radius);
 }
 void obzect::handleEvent(){
-    if(x+radius>=WIDTH){
-        if(steitus==RIGHT) steitus=LEFT;
-        else if(steitus==DOWNRIGHT) steitus=DOWNLEFT;
-        else if(steitus==UPRIGHT) steitus=UPLEFT;
-    }
-    if(y+radius>=HEIGHT){
-        if(steitus==DOWN) steitus=UP;
-        else if(steitus==DOWNRIGHT) steitus=UPRIGHT;
-        else if(steitus==DOWNLEFT) steitus=UPLEFT;
-    }
-    if(x-radius<=0){
-        if(steitus==LEFT) steitus=RIGHT;
-        else if(steitus==DOWNLEFT) steitus=DOWNRIGHT;
-        else if(steitus==UPLEFT) steitus=UPRIGHT;
-    }
-    if(y-radius<=0){
-        if(steitus==UP) steitus=DOWN;
-        else if(steitus==UPRIGHT) steitus=DOWNRIGHT;
-        else if(steitus==UPLEFT) steitus=DOWNLEFT;
-    }
+    if(x+radius+speedX>=WIDTH || x-radius+speedX<=0) speedX=0-speedX;
+    if(y+radius+speedY>=HEIGHT || y-radius+speedY<=0) speedY=0-speedY;
 }
 void obzect::controlBall(){
     if(kbhit()){
-        char c=getch();
-        if(c=='s') speed+=1;
-        if(c=='d') {
-            if(speed>=1) speed-=1;
+        char key=getch();
+        if(key=='a' && radius>1) radius--;
+        if(key=='d' && radius<HEIGHT/2) radius++;
+        if(key=='w'){
+            speedX=(speedX<0?--speedX:++speedX);
+            speedY=(speedY<0?--speedY:++speedY);
         }
-        if(c=='z'){
-            if(2*radius<HEIGHT) radius+=2;
+        if(key=='s'){
+            speedX=(speedX<0?++speedX:--speedX);
+            speedY=(speedY<0?++speedY:--speedY);
         }
-        if(c=='x'){
-            if(radius>2) radius-=2;
-        }
+
     }
 }
 void obzect::moveObz(){
-    if(steitus==LEFT) x-=speed;
-    else if(steitus==RIGHT) x+=speed;
-    else if(steitus==UP) y-=speed;
-    else if(steitus==DOWN) y+=speed;
-    else if(steitus==DOWNLEFT){x-=speed;y+=speed;}
-    else if(steitus==DOWNRIGHT){x+=speed;y+=speed;}
-    else if(steitus==UPLEFT){x-=speed;y-=speed;}
-    else if(steitus==UPRIGHT){x+=speed;y-=speed;}
+    x+=speedX;
+    y+=speedY;
 }
