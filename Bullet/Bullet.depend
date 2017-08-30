@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1504096293 source:c:\cpp\bullet\bullet.cpp
+	"bullet.h"
+	<cmath>
+	<iostream>
+
+1504096992 source:c:\cpp\bullet\main.cpp
+	<iostream>
+	"bullet.h"
+
+1504096293 c:\cpp\bullet\bullet.h
+	<graphics.h>
+
